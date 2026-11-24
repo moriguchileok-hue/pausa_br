@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>PAUSA — Kit de Cianotipia</title>
+<script src="./_runtime/react.js"></script>
+<script src="./_runtime/react-dom.js"></script>
+<script src="./_runtime/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;600&amp;family=Cormorant+Garamond:wght@300;400&amp;display=swap">
+<style>
+body{margin:0}
+a{color:inherit;text-decoration:none}
+a:hover{opacity:.7}
+p{hyphens:none;text-align:justify}
+.t{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;text-transform:uppercase;margin:0;letter-spacing:.01em}
+.ph{border:1px dashed #1A2C63;border-radius:28px;display:flex;align-items:flex-end;padding:20px;box-sizing:border-box;font-size:13px;color:#1A2C63;background:#EAE4D9}
+html{scroll-behavior:smooth}
+@keyframes fadeUp{from{opacity:0;translate:0 28px}to{opacity:1;translate:0 0}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideDown{from{opacity:0;translate:0 -100%}to{opacity:1;translate:0 0}}
+@keyframes zoomOut{from{opacity:0;scale:1.08}to{opacity:1;scale:1}}
+@keyframes menuIn{from{opacity:0;translate:0 -12px}to{opacity:1;translate:0 0}}
+@keyframes toastIn{from{opacity:0;translate:0 24px;scale:.96}to{opacity:1;translate:0 0;scale:1}}
+@keyframes sway{0%,100%{rotate:-1.6deg}50%{rotate:1.6deg}}
+@keyframes shine{from{background-position:-200% 0}to{background-position:200% 0}}
+header{animation:fadeIn .6s ease both}
+.promo{animation:slideDown .7s cubic-bezier(.2,.7,.2,1) both}
+.promo strong{background:linear-gradient(100deg,#F4EFE7 40%,#A3C7DD 50%,#F4EFE7 60%) 0 0/200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 3.2s ease-in-out 1s infinite}
+a,button{transition:opacity .25s ease,background-color .25s ease,color .25s ease,border-color .25s ease,box-shadow .3s ease,translate .3s cubic-bezier(.2,.7,.2,1),scale .2s ease;-webkit-tap-highlight-color:transparent}
+a[style*="999px"]:hover,.btn:hover{opacity:1;translate:0 -2px;box-shadow:0 10px 22px rgba(26,44,99,.22)}
+a[style*="999px"]:active,.btn:active,.qty:active,button:active{scale:.97;translate:0 0}
+.qty:hover{background:#1A2C63;color:#F4EFE7}
+.fld{transition:border-color .25s ease,box-shadow .25s ease,background-color .25s ease}
+.fld:focus{outline:none;box-shadow:0 0 0 3px #A3C7DD;background:#fff}
+a:focus-visible,button:focus-visible{outline:3px solid #A3C7DD;outline-offset:3px}
+div[style*="overflow:hidden"]>img:not([style*="inset:0"]){transition:scale .8s cubic-bezier(.2,.7,.2,1)}
+div[style*="overflow:hidden"]:hover>img:not([style*="inset:0"]){scale:1.05}
+img[style*="inset:0"]{animation:zoomOut 1.6s cubic-bezier(.2,.7,.2,1) both}
+nav[aria-label="Principal"]{animation:menuIn .35s cubic-bezier(.2,.7,.2,1) both}
+nav[aria-label="Principal"] a{animation:fadeUp .45s cubic-bezier(.2,.7,.2,1) both}
+nav[aria-label="Principal"] a:nth-child(1){animation-delay:.02s}
+nav[aria-label="Principal"] a:nth-child(2){animation-delay:0.08s}
+nav[aria-label="Principal"] a:nth-child(3){animation-delay:0.12s}
+nav[aria-label="Principal"] a:nth-child(4){animation-delay:0.16s}
+nav[aria-label="Principal"] a:nth-child(5){animation-delay:0.20s}
+nav[aria-label="Principal"] a:nth-child(6){animation-delay:0.24s}
+nav[aria-label="Principal"] a:nth-child(7){animation-delay:0.28s}
+nav[aria-label="Principal"] a:nth-child(8){animation-delay:0.32s}
+nav[aria-label="Principal"] a:nth-child(9){animation-delay:0.36s}
+@keyframes revealUp{from{opacity:0;translate:0 48px}to{opacity:1;translate:0 0}}
+@keyframes revealBox{from{opacity:0;translate:0 64px;scale:.94}to{opacity:1;translate:0 0;scale:1}}
+@keyframes revealImg{from{opacity:0;scale:1.14}to{opacity:1;scale:1}}
+@keyframes slideL{from{opacity:0;translate:-64px 0}to{opacity:1;translate:0 0}}
+@keyframes slideR{from{opacity:0;translate:64px 0}to{opacity:1;translate:0 0}}
+@keyframes drift{from{translate:0 60px}to{translate:0 -60px}}
+@keyframes headShadow{from{box-shadow:0 0 0 rgba(26,44,99,0)}to{box-shadow:0 10px 28px rgba(26,44,99,.16)}}
+@keyframes prog{from{scale:0 1}to{scale:1 1}}
+html,body{overflow-x:clip}
+[id]{scroll-margin-top:96px}
+header{position:sticky;top:0;z-index:40;background:#F4EFE7}
+header::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:#76090D;transform-origin:0 50%;scale:0 1;pointer-events:none}
+@supports (animation-timeline:view()){
+header{animation:fadeIn .6s ease both,headShadow linear both;animation-timeline:auto,scroll(root);animation-range:normal,0 160px}
+header::after{animation:prog linear both;animation-timeline:scroll(root)}
+section h1,section h2,section h3,section p,section li,section ul,section form,section aside,section article,.eyebrow,section .t{animation:revealUp linear both;animation-timeline:view();animation-range:entry 0% entry 60%}
+section img:not([alt=""]):not([style*="inset:0"]){animation:revealImg linear both;animation-timeline:view();animation-range:entry 0% entry 70%}
+section div[style*="display:grid"]>div{animation:revealBox linear both;animation-timeline:view();animation-range:entry 0% entry 70%}
+section div[style*="display:grid"]>div:nth-child(2){animation-range:entry 10% entry 80%}
+section div[style*="display:grid"]>div:nth-child(3){animation-range:entry 20% entry 90%}
+section div[style*="display:grid"]>div:nth-child(n+4){animation-range:entry 30% entry 100%}
+section div[style*="display:grid"]>div :is(h1,h2,h3,p,li,ul,.t,.eyebrow){animation:none}
+section[style*="display:grid"]>*:first-child{animation:slideL linear both;animation-timeline:view();animation-range:entry 0% entry 80%}
+section[style*="display:grid"]>*:last-child{animation:slideR linear both;animation-timeline:view();animation-range:entry 0% entry 80%}
+section[style*="display:grid"]>* :is(h1,h2,h3,p,li,ul,.t,.eyebrow,img){animation:none}
+}
+@supports not (animation-timeline:view()){
+section h1,section h2,section p,.eyebrow{animation:fadeUp .8s cubic-bezier(.2,.7,.2,1) both}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+img[alt=""][style*="position:absolute"]{transform-origin:50% 100%;animation:sway 7s ease-in-out infinite}
+@supports (animation-timeline:view()){img[alt=""][style*="position:absolute"]{animation:sway 7s ease-in-out infinite,drift linear both;animation-timeline:auto,view();animation-range:normal,cover}}
+</style>
+</helmet>
+<div style="background:#F4EFE7;color:#1A2C63;font-family:'Bricolage Grotesque',Arial,sans-serif;font-size:17px;line-height:1.6">
+
+<a class="promo" href="Vitrine.dc.html" style="background:#76090D;color:#F4EFE7;min-height:44px;padding:0 48px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:14px;letter-spacing:.03em;white-space:nowrap;overflow:hidden;text-align:center;box-sizing:border-box"><span>Leve mais 1 kit e ganhe <strong style="font-weight:600">15% de desconto</strong></span><span aria-hidden="true">→</span></a>
+<header id="inicio" style="border-bottom:1px solid #1A2C63;padding:20px 48px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
+<a href="#inicio" aria-label="PAUSA" style="display:block"><img src="./assets/659300773868f7933f754b0e54c83de7.svg" alt="PAUSA" style="display:block;height:44px;width:auto"></a>
+<nav style="display:flex;flex-wrap:wrap;gap:32px;font-size:15px;letter-spacing:.04em">
+<a href="#inicio">Início</a><a href="#kit">O Kit</a><a href="#experiencia">A Experiência</a><a href="Loja.dc.html">Loja</a><a href="Blog.dc.html">Blog</a><a href="#manifesto">Sobre a PAUSA</a>
+</nav>
+<a href="Vitrine.dc.html" style="background:#76090D;color:#F4EFE7;padding:12px 28px;border-radius:999px;font-size:15px;min-height:44px;box-sizing:border-box">Conheça o Kit</a>
+</header>
+
+<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));min-height:720px">
+<div style="padding:96px 48px;display:flex;flex-direction:column;justify-content:center;gap:32px">
+<span style="font-size:13px;letter-spacing:.4em;text-transform:uppercase">Menos tela, mais fazer</span>
+<h1 class="t" style="font-size:clamp(36px,5.2vw,76px);line-height:1;max-width:100%">Desacelere.<br>Experimente.<br>Crie.</h1>
+<p style="max-width:460px;margin:0;text-align:left">Redescubra o prazer de criar com as próprias mãos. Uma experiência analógica para transformar pequenos momentos em grandes descobertas.</p>
+<div><a href="#kit" style="display:inline-block;border:1px solid #1A2C63;padding:14px 32px;border-radius:999px;min-height:44px;box-sizing:border-box">Descubra o Kit</a></div>
+</div>
+<div style="background:#1A2C63;position:relative;overflow:hidden;min-height:480px">
+<img src="./assets/6b13f9238937c774f45d346e265cf0fd.jpg" alt="Pessoa segurando a caixa do Kit de Cianotipia da PAUSA" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:55% 50%">
+</div>
+</section>
+
+<section id="manifesto" style="padding:120px 48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:64px;align-items:center">
+<div style="position:relative;overflow:hidden;height:480px;border-radius:28px;background:#76090D repeating-linear-gradient(90deg,#76090D 0 56px,#A3C7DD 56px 64px,#76090D 64px 68px,#A3C7DD 68px 124px)">
+<img src="./assets/d5bf8ed510eb1309b4efb7da47a788dd.png" alt="" style="position:absolute;left:8%;bottom:0;height:86%;width:auto">
+<img src="./assets/43aa2b9a20d2fb07bb2fdc8adda03688.png" alt="" style="position:absolute;right:6%;top:8%;width:42%;height:auto">
+</div>
+<div style="display:flex;flex-direction:column;gap:28px;max-width:560px">
+<span style="font-size:13px;letter-spacing:.4em;text-transform:uppercase">Manifesto PAUSA</span>
+<h2 class="t" style="font-size:clamp(40px,5vw,68px);line-height:1">Um convite para sair do automático.</h2>
+<p style="margin:0">Em meio a tantas telas, notificações e estímulos, a PAUSA convida você a encontrar tempo para si. A experimentar, criar, descobrir e se reconectar com o prazer das pequenas coisas.</p>
+<p style="margin:0">Não propomos abandonar a tecnologia, mas encontrar equilíbrio e abrir espaço para outras experiências.</p>
+</div>
+</section>
+
+<section id="kit" style="background:#A3C7DD;padding:120px 48px;position:relative;overflow:hidden">
+<img src="./assets/886969e3b1819214bb8dceee9a845e74.png" alt="" style="position:absolute;top:48px;right:48px;width:clamp(80px,10vw,150px);height:auto">
+<div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:64px">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:48px;align-items:end">
+<div style="display:flex;flex-direction:column;gap:20px">
+<span style="font-size:13px;letter-spacing:.4em;text-transform:uppercase">Kit de Hobby de Cianotipia</span>
+<h2 class="t" style="font-size:clamp(40px,5vw,68px);line-height:1">Seu próximo hobby tem tons de azul.</h2>
+</div>
+<p style="margin:0">Descubra a cianotipia, uma técnica fotográfica artesanal que utiliza a luz do sol para criar imagens únicas em um processo criativo, experimental e surpreendente.</p>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:24px">
+<img src="./assets/6cdd9e49797c43c8af7e712d767ff1b4.jpg" alt="Manual de instruções de cianotipia da PAUSA" style="flex:2 1 480px;min-width:0;height:420px;object-fit:cover;border-radius:28px">
+<img src="./assets/5606d6390129a1395250ca49c5cad0ec.jpg" alt="Arte da PAUSA com listras, hibisco e pássaro" style="flex:1 1 260px;min-width:0;height:420px;object-fit:cover;border-radius:28px">
+<img src="./assets/fc4cfbb3a24f83a37da9305a48c7afca.jpg" alt="Ecobag da PAUSA" style="flex:1 1 260px;min-width:0;height:420px;object-fit:cover;object-position:55% 50%;border-radius:28px">
+</div>
+<div style="position:relative;background:#F4EFE7;border-radius:28px;padding:48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px">
+<img src="./assets/ca9b0a202a7937cbd14e51f9dcde4fe1.png" alt="" style="position:absolute;right:40px;top:-96px;height:180px;width:auto">
+<div>
+<h3 class="t" style="font-size:32px;margin-bottom:16px">O que vem no kit</h3>
+<ul style="margin:0;padding-left:20px">
+<li>Papel para aquarela</li><li>Kit de cianotipia</li><li>Pincel</li><li>Bandeja com água</li><li>Luvas e óculos de proteção</li><li>Placa de vidro transparente</li>
+</ul>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px;justify-content:center">
+<span class="t" style="font-size:40px">R$ 399,00</span>
+<a href="Vitrine.dc.html" style="display:inline-block;align-self:flex-start;background:#76090D;color:#F4EFE7;padding:14px 32px;border-radius:999px;min-height:44px;box-sizing:border-box">Quero o meu kit</a>
+</div>
+</div>
+</div>
+</section>
+
+<section id="experiencia" style="padding:120px 48px;background:#1A2C63;color:#F4EFE7;position:relative;overflow:hidden">
+<img src="./assets/f2f7152d988ac2606720975ce831c992.png" alt="" style="position:absolute;top:56px;right:56px;width:clamp(100px,14vw,200px);height:auto">
+<div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:56px">
+<h2 class="t" style="font-size:clamp(40px,5vw,68px);line-height:1">A experiência, passo a passo</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px">
+<div><span class="t" style="font-size:56px">1</span><h3 class="t" style="font-size:24px">Separe os materiais</h3><p style="margin:8px 0 0;text-align:left">Papel, kit, pincel, bandeja, luvas, óculos e vidro.</p></div>
+<div><span class="t" style="font-size:56px">2</span><h3 class="t" style="font-size:24px">Prepare o papel</h3><p style="margin:8px 0 0;text-align:left">Aplique a solução fotossensível e deixe secar no escuro.</p></div>
+<div><span class="t" style="font-size:56px">3</span><h3 class="t" style="font-size:24px">Monte a composição</h3><p style="margin:8px 0 0;text-align:left">Posicione folhas e flores e cubra com o vidro.</p></div>
+<div><span class="t" style="font-size:56px">4</span><h3 class="t" style="font-size:24px">Exponha à luz</h3><p style="margin:8px 0 0;text-align:left">Leve ao sol e deixe a luz revelar a imagem.</p></div>
+</div>
+</div>
+</section>
+
+<footer style="padding:64px 48px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;background:#76090D;color:#F4EFE7">
+<img src="./assets/768e2d3d4ae54428adf0085ae35fc38f.svg" alt="PAUSA" style="display:block;height:56px;width:auto">
+<div style="display:flex;flex-direction:column;gap:2px;align-items:flex-end;text-align:right"><span style="font-size:15px">Seu hobby começa com uma pausa.</span><a href="https://www.instagram.com/pausa_br/" style="font-size:15px;letter-spacing:.04em;display:flex;align-items:center;min-height:44px">Instagram @pausa_br</a></div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3300}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

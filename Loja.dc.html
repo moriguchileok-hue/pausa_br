@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>PAUSA — Loja</title>
+<script src="./_runtime/react.js"></script>
+<script src="./_runtime/react-dom.js"></script>
+<script src="./_runtime/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;600&amp;family=Cormorant+Garamond:wght@300;400&amp;display=swap">
+<style>
+body{margin:0}
+a{color:inherit;text-decoration:none}
+a:hover{opacity:.7}
+p{hyphens:none}
+.t{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;text-transform:uppercase;margin:0;letter-spacing:.01em}
+.eyebrow{font-size:13px;letter-spacing:.4em;text-transform:uppercase}
+.diam{background:repeating-conic-gradient(#1A2C63 0 25%,#A3C7DD 0 50%) 0 0/72px 72px}
+.fld{font:inherit;color:#1A2C63;background:transparent;border:1px solid #1A2C63;border-radius:14px;min-height:48px;padding:10px 14px;box-sizing:border-box;width:100%}
+.lbl{font-size:14px;letter-spacing:.04em;display:block;margin-bottom:6px}
+.btn{font:inherit;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 32px;border-radius:999px;box-sizing:border-box}
+.btn-red{background:#76090D;color:#F4EFE7;border:1px solid #76090D}
+.btn-line{background:transparent;color:#1A2C63;border:1px solid #1A2C63}
+.qty{font:inherit;font-size:20px;width:44px;height:44px;border-radius:999px;border:1px solid #1A2C63;background:transparent;color:#1A2C63;cursor:pointer;padding:0}
+html{scroll-behavior:smooth}
+@keyframes fadeUp{from{opacity:0;translate:0 28px}to{opacity:1;translate:0 0}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideDown{from{opacity:0;translate:0 -100%}to{opacity:1;translate:0 0}}
+@keyframes zoomOut{from{opacity:0;scale:1.08}to{opacity:1;scale:1}}
+@keyframes menuIn{from{opacity:0;translate:0 -12px}to{opacity:1;translate:0 0}}
+@keyframes toastIn{from{opacity:0;translate:0 24px;scale:.96}to{opacity:1;translate:0 0;scale:1}}
+@keyframes sway{0%,100%{rotate:-1.6deg}50%{rotate:1.6deg}}
+@keyframes shine{from{background-position:-200% 0}to{background-position:200% 0}}
+header{animation:fadeIn .6s ease both}
+.promo{animation:slideDown .7s cubic-bezier(.2,.7,.2,1) both}
+.promo strong{background:linear-gradient(100deg,#F4EFE7 40%,#A3C7DD 50%,#F4EFE7 60%) 0 0/200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 3.2s ease-in-out 1s infinite}
+a,button{transition:opacity .25s ease,background-color .25s ease,color .25s ease,border-color .25s ease,box-shadow .3s ease,translate .3s cubic-bezier(.2,.7,.2,1),scale .2s ease;-webkit-tap-highlight-color:transparent}
+a[style*="999px"]:hover,.btn:hover{opacity:1;translate:0 -2px;box-shadow:0 10px 22px rgba(26,44,99,.22)}
+a[style*="999px"]:active,.btn:active,.qty:active,button:active{scale:.97;translate:0 0}
+.qty:hover{background:#1A2C63;color:#F4EFE7}
+.fld{transition:border-color .25s ease,box-shadow .25s ease,background-color .25s ease}
+.fld:focus{outline:none;box-shadow:0 0 0 3px #A3C7DD;background:#fff}
+a:focus-visible,button:focus-visible{outline:3px solid #A3C7DD;outline-offset:3px}
+div[style*="overflow:hidden"]>img:not([style*="inset:0"]){transition:scale .8s cubic-bezier(.2,.7,.2,1)}
+div[style*="overflow:hidden"]:hover>img:not([style*="inset:0"]){scale:1.05}
+img[style*="inset:0"]{animation:zoomOut 1.6s cubic-bezier(.2,.7,.2,1) both}
+nav[aria-label="Principal"]{animation:menuIn .35s cubic-bezier(.2,.7,.2,1) both}
+nav[aria-label="Principal"] a{animation:fadeUp .45s cubic-bezier(.2,.7,.2,1) both}
+nav[aria-label="Principal"] a:nth-child(1){animation-delay:.02s}
+nav[aria-label="Principal"] a:nth-child(2){animation-delay:0.08s}
+nav[aria-label="Principal"] a:nth-child(3){animation-delay:0.12s}
+nav[aria-label="Principal"] a:nth-child(4){animation-delay:0.16s}
+nav[aria-label="Principal"] a:nth-child(5){animation-delay:0.20s}
+nav[aria-label="Principal"] a:nth-child(6){animation-delay:0.24s}
+nav[aria-label="Principal"] a:nth-child(7){animation-delay:0.28s}
+nav[aria-label="Principal"] a:nth-child(8){animation-delay:0.32s}
+nav[aria-label="Principal"] a:nth-child(9){animation-delay:0.36s}
+@keyframes revealUp{from{opacity:0;translate:0 48px}to{opacity:1;translate:0 0}}
+@keyframes revealBox{from{opacity:0;translate:0 64px;scale:.94}to{opacity:1;translate:0 0;scale:1}}
+@keyframes revealImg{from{opacity:0;scale:1.14}to{opacity:1;scale:1}}
+@keyframes slideL{from{opacity:0;translate:-64px 0}to{opacity:1;translate:0 0}}
+@keyframes slideR{from{opacity:0;translate:64px 0}to{opacity:1;translate:0 0}}
+@keyframes drift{from{translate:0 60px}to{translate:0 -60px}}
+@keyframes headShadow{from{box-shadow:0 0 0 rgba(26,44,99,0)}to{box-shadow:0 10px 28px rgba(26,44,99,.16)}}
+@keyframes prog{from{scale:0 1}to{scale:1 1}}
+html,body{overflow-x:clip}
+[id]{scroll-margin-top:96px}
+header{position:sticky;top:0;z-index:40;background:#F4EFE7}
+header::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:#76090D;transform-origin:0 50%;scale:0 1;pointer-events:none}
+@supports (animation-timeline:view()){
+header{animation:fadeIn .6s ease both,headShadow linear both;animation-timeline:auto,scroll(root);animation-range:normal,0 160px}
+header::after{animation:prog linear both;animation-timeline:scroll(root)}
+section h1,section h2,section h3,section p,section li,section ul,section form,section aside,section article,.eyebrow,section .t{animation:revealUp linear both;animation-timeline:view();animation-range:entry 0% entry 60%}
+section img:not([alt=""]):not([style*="inset:0"]){animation:revealImg linear both;animation-timeline:view();animation-range:entry 0% entry 70%}
+section div[style*="display:grid"]>div{animation:revealBox linear both;animation-timeline:view();animation-range:entry 0% entry 70%}
+section div[style*="display:grid"]>div:nth-child(2){animation-range:entry 10% entry 80%}
+section div[style*="display:grid"]>div:nth-child(3){animation-range:entry 20% entry 90%}
+section div[style*="display:grid"]>div:nth-child(n+4){animation-range:entry 30% entry 100%}
+section div[style*="display:grid"]>div :is(h1,h2,h3,p,li,ul,.t,.eyebrow){animation:none}
+section[style*="display:grid"]>*:first-child{animation:slideL linear both;animation-timeline:view();animation-range:entry 0% entry 80%}
+section[style*="display:grid"]>*:last-child{animation:slideR linear both;animation-timeline:view();animation-range:entry 0% entry 80%}
+section[style*="display:grid"]>* :is(h1,h2,h3,p,li,ul,.t,.eyebrow,img){animation:none}
+}
+@supports not (animation-timeline:view()){
+section h1,section h2,section p,.eyebrow{animation:fadeUp .8s cubic-bezier(.2,.7,.2,1) both}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+.shop>section{animation:fadeUp .6s cubic-bezier(.2,.7,.2,1) both}
+.toast{animation:toastIn .45s cubic-bezier(.2,.7,.2,1) both}
+</style>
+</helmet>
+<div class="shop" style="background:#F4EFE7;color:#1A2C63;font-family:'Bricolage Grotesque',Arial,sans-serif;font-size:17px;line-height:1.6">
+<div class="promo" style="background:#76090D;color:#F4EFE7;min-height:44px;padding:0 48px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:14px;letter-spacing:.03em;white-space:nowrap;overflow:hidden;text-align:center;box-sizing:border-box"><span><strong style="font-weight:600">{{bannerText}}</strong></span></div>
+<header style="border-bottom:1px solid #1A2C63;padding:20px 48px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;background:#F4EFE7">
+<a href="Main.dc.html" aria-label="PAUSA, página inicial" style="display:block"><img src="./assets/659300773868f7933f754b0e54c83de7.svg" alt="PAUSA" style="display:block;height:44px;width:auto"></a>
+<nav style="display:flex;flex-wrap:wrap;gap:32px;font-size:15px;letter-spacing:.04em">
+<a href="Main.dc.html">Início</a><a href="Vitrine.dc.html">Kits</a><a href="Loja.dc.html" style="font-weight:600">Loja</a><a href="Blog.dc.html">Blog</a><a href="Main.dc.html#manifesto">Sobre a PAUSA</a>
+</nav>
+<button onClick="{{goBag}}" style="font:inherit;font-size:15px;cursor:pointer;border:0;background:#76090D;color:#F4EFE7;padding:0 28px;border-radius:999px;min-height:44px">Sacola ({{count}})</button>
+</header><sc-if value="{{viewLoja}}" hint-placeholder-val="{{ true }}">
+<section style="max-width:1200px;margin:0 auto;padding:0 48px;padding-top:96px;padding-bottom:32px;display:flex;flex-direction:column;gap:20px">
+<span class="eyebrow">Loja PAUSA</span>
+<h1 class="t" style="font-size:clamp(44px,6vw,88px);line-height:1;max-width:900px">Monte a sua pausa.</h1>
+<p style="margin:0;max-width:600px">Escolha um kit completo ou repare cada material de cianotipia separadamente.</p>
+</section>
+<section style="max-width:1200px;margin:0 auto;padding:0 48px;padding-top:40px;padding-bottom:56px;display:flex;flex-direction:column;gap:32px">
+<h2 class="t" style="font-size:clamp(36px,4.5vw,60px);line-height:1">Kits completos</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px 32px"><sc-for list="{{kits}}" as="p" hint-placeholder-count="3">
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="position:relative;overflow:hidden;border-radius:28px;height:340px;background:{{p.bg}}"><sc-if value="{{p.tag}}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:14px;left:14px;background:#F4EFE7;color:#1A2C63;padding:3px 12px;border-radius:999px;font-size:12px;letter-spacing:.08em">{{p.tag}}</span></sc-if><img src="{{p.img}}" alt="" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);height:76%;width:auto;max-width:80%;object-fit:contain"></div>
+<div style="display:flex;flex-direction:column;gap:6px">
+<h3 class="t" style="font-size:28px;line-height:1.05">{{p.name}}</h3>
+<p style="margin:0;font-size:16px;line-height:1.4">{{p.desc}}</p>
+<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-top:6px"><span class="t" style="font-size:28px">{{p.priceLabel}}</span><button class="btn btn-line" onClick="{{p.add}}" style="padding:0 24px">Adicionar</button></div>
+</div>
+</div>
+</sc-for></div>
+</section>
+<section style="max-width:1200px;margin:0 auto;padding:0 48px;padding-top:24px;padding-bottom:120px;display:flex;flex-direction:column;gap:32px">
+<h2 class="t" style="font-size:clamp(36px,4.5vw,60px);line-height:1">Materiais de cianotipia</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:40px 32px"><sc-for list="{{products}}" as="p" hint-placeholder-count="3">
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="position:relative;overflow:hidden;border-radius:28px;height:340px;background:{{p.bg}}"><img src="{{p.img}}" alt="" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);height:76%;width:auto;max-width:80%;object-fit:contain"></div>
+<div style="display:flex;flex-direction:column;gap:6px">
+<h3 class="t" style="font-size:28px;line-height:1.05">{{p.name}}</h3>
+<p style="margin:0;font-size:16px;line-height:1.4">{{p.desc}}</p>
+<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-top:6px"><span class="t" style="font-size:28px">{{p.priceLabel}}</span><button class="btn btn-line" onClick="{{p.add}}" style="padding:0 24px">Adicionar</button></div>
+</div>
+</div>
+</sc-for></div>
+</section>
+</sc-if><sc-if value="{{viewSacola}}" hint-placeholder-val="{{ false }}">
+<section style="max-width:1200px;margin:0 auto;padding:0 48px;padding-top:96px;padding-bottom:120px;display:flex;flex-direction:column;gap:32px">
+<span class="eyebrow">Sua sacola</span>
+<h1 class="t" style="font-size:clamp(44px,6vw,88px);line-height:1">Itens da sacola</h1>
+<sc-if value="{{bagEmpty}}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-direction:column;gap:20px;align-items:flex-start"><p style="margin:0">Sua sacola está vazia. Que tal começar por um kit?</p><button class="btn btn-red" onClick="{{goShop}}">Ver kits e materiais</button></div>
+</sc-if>
+<sc-if value="{{bagFull}}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;flex-direction:column"><sc-for list="{{lines}}" as="l" hint-placeholder-count="2">
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:24px;padding:20px 0;border-bottom:1px solid #1A2C63">
+<div style="position:relative;overflow:hidden;border-radius:16px;width:96px;height:96px;flex:none;background:{{l.bg}}"><img src="{{l.img}}" alt="" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);height:78%;width:auto;max-width:80%;object-fit:contain"></div>
+<div style="flex:1 1 200px;min-width:0"><h3 class="t" style="font-size:26px;line-height:1.05">{{l.name}}</h3><span style="font-size:15px">{{l.priceLabel}}</span></div>
+<div style="display:flex;align-items:center;gap:8px"><button class="qty" aria-label="Diminuir quantidade de {{l.name}}" onClick="{{l.dec}}">−</button><span aria-live="polite" style="min-width:24px;text-align:center">{{l.qty}}</span><button class="qty" aria-label="Aumentar quantidade de {{l.name}}" onClick="{{l.inc}}">+</button></div>
+<span class="t" style="font-size:24px;min-width:120px;text-align:right">{{l.lineLabel}}</span>
+<button class="btn btn-line" onClick="{{l.remove}}" style="min-height:44px;padding:0 18px;font-size:14px">Remover</button>
+</div>
+</sc-for></div>
+<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding:28px 32px;border-radius:24px;background:#1A2C63;color:#F4EFE7">
+<div><sc-if value="{{hasDiscount}}" hint-placeholder-val="{{ false }}"><div style="font-size:15px;margin-bottom:6px">Kits {{subtotalLabel}} · desconto de 15% {{discountLabel}}</div></sc-if><sc-if value="{{nudge}}" hint-placeholder-val="{{ false }}"><div style="font-size:15px;margin-bottom:6px">Adicione mais 1 kit e ganhe 15% de desconto.</div></sc-if><span class="eyebrow">Total</span><div class="t" style="font-size:40px;line-height:1.1">{{total}}</div></div>
+<div style="display:flex;flex-wrap:wrap;gap:12px"><button class="btn" onClick="{{goShop}}" style="background:transparent;color:#F4EFE7;border:1px solid #F4EFE7">Continuar comprando</button><button class="btn" onClick="{{goCheckout}}" style="background:#F4EFE7;color:#1A2C63;border:1px solid #F4EFE7">Finalizar compra</button></div>
+</div>
+</sc-if>
+</section>
+</sc-if><sc-if value="{{viewCheckout}}" hint-placeholder-val="{{ false }}">
+<section style="max-width:1200px;margin:0 auto;padding:0 48px;padding-top:96px;padding-bottom:120px;display:flex;flex-direction:column;gap:32px">
+<span class="eyebrow">Finalizar compra</span>
+<h1 class="t" style="font-size:clamp(44px,6vw,88px);line-height:1">Falta pouco para a sua pausa.</h1>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:56px;align-items:start">
+<form onSubmit="{{finish}}" style="display:flex;flex-direction:column;gap:36px">
+<fieldset style="border:0;padding:0;margin:0;display:flex;flex-direction:column;gap:16px"><legend class="t" style="font-size:28px;padding:0;margin-bottom:12px">Seus dados</legend>
+<div style=""><label class="lbl" for="nome">Nome completo</label><input class="fld" id="nome" name="nome" autocomplete="name"></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px"><div style=""><label class="lbl" for="email">E-mail</label><input class="fld" id="email" name="email" autocomplete="email"></div><div style=""><label class="lbl" for="tel">Telefone</label><input class="fld" id="tel" name="tel" autocomplete="tel"></div></div></fieldset>
+<fieldset style="border:0;padding:0;margin:0;display:flex;flex-direction:column;gap:16px"><legend class="t" style="font-size:28px;padding:0;margin-bottom:12px">Entrega</legend>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px"><div style=""><label class="lbl" for="cep">CEP</label><input class="fld" id="cep" name="cep" autocomplete="postal-code"></div><div style=""><label class="lbl" for="cidade">Cidade</label><input class="fld" id="cidade" name="cidade" autocomplete="address-level2"></div></div>
+<div style=""><label class="lbl" for="endereco">Endereço</label><input class="fld" id="endereco" name="endereco" autocomplete="street-address"></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px"><div style=""><label class="lbl" for="numero">Número</label><input class="fld" id="numero" name="numero" autocomplete="off"></div><div style=""><label class="lbl" for="compl">Complemento</label><input class="fld" id="compl" name="compl" autocomplete="off"></div></div></fieldset>
+<fieldset style="border:0;padding:0;margin:0;display:flex;flex-direction:column;gap:16px"><legend class="t" style="font-size:28px;padding:0;margin-bottom:12px">Pagamento</legend>
+<div style="display:flex;flex-wrap:wrap;gap:12px"><sc-for list="{{pays}}" as="o" hint-placeholder-count="3"><button type="button" aria-pressed="{{o.pressed}}" onClick="{{o.pick}}" style="{{o.style}}">{{o.label}}</button></sc-for></div>
+<p style="margin:0;font-size:14px">Protótipo: nenhum dado é enviado nem armazenado.</p></fieldset>
+</form>
+<aside style="background:#1A2C63;color:#F4EFE7;border-radius:24px;padding:36px;display:flex;flex-direction:column;gap:16px">
+<h2 class="t" style="font-size:30px">Resumo do pedido</h2>
+<div><sc-for list="{{lines}}" as="l" hint-placeholder-count="2"><div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid rgba(244,239,231,.3)"><span>{{l.qty}} × {{l.name}}</span><span>{{l.lineLabel}}</span></div></sc-for></div>
+<sc-if value="{{hasDiscount}}" hint-placeholder-val="{{ false }}"><div style="display:flex;justify-content:space-between;gap:12px;font-size:15px"><span>Desconto de 15% nos kits</span><span>{{discountLabel}}</span></div></sc-if><div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline"><span class="eyebrow">Total</span><span class="t" style="font-size:32px;text-align:right">{{total}}</span></div>
+<button class="btn" onClick="{{finish}}" style="background:#F4EFE7;color:#1A2C63;border:1px solid #F4EFE7">Confirmar pedido</button>
+<button class="btn" onClick="{{goBag}}" style="background:transparent;color:#F4EFE7;border:1px solid #F4EFE7">Voltar à sacola</button>
+</aside>
+</div>
+</section>
+</sc-if><sc-if value="{{viewOk}}" hint-placeholder-val="{{ false }}">
+<section style="max-width:1200px;margin:0 auto;padding:0 48px;padding-top:120px;padding-bottom:160px;display:flex;flex-direction:column;gap:20px;align-items:flex-start">
+<span class="eyebrow">Pedido recebido</span>
+<h1 class="t" style="font-size:clamp(44px,6vw,88px);line-height:1;max-width:800px">Obrigada por fazer uma pausa.</h1>
+<p style="margin:0;max-width:520px">Seu hobby começa agora. Este é um protótipo: nenhum pedido real foi gerado.</p>
+<button class="btn btn-red" onClick="{{restart}}">Voltar à loja</button>
+</section>
+</sc-if><sc-if value="{{toast}}" hint-placeholder-val="{{ false }}"><div style="position:sticky;bottom:0;height:0;z-index:30"><div role="status" class="toast" style="position:absolute;bottom:24px;right:48px;background:#1A2C63;color:#F4EFE7;border-radius:24px;padding:8px 8px 8px 22px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 14px;box-shadow:0 14px 34px rgba(26,44,99,.35)"><span>{{toast}} adicionado à sacola</span><button onClick="{{goBag}}" style="font:inherit;cursor:pointer;border:0;background:#F4EFE7;color:#1A2C63;border-radius:999px;min-height:44px;padding:0 20px">Ver sacola</button></div></div></sc-if><footer style="padding:64px 48px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;background:#76090D;color:#F4EFE7"><img src="./assets/768e2d3d4ae54428adf0085ae35fc38f.svg" alt="PAUSA" style="display:block;height:56px;width:auto"><div style="display:flex;flex-direction:column;gap:2px;align-items:flex-end;text-align:right"><span style="font-size:15px">Seu hobby começa com uma pausa.</span><a href="https://www.instagram.com/pausa_br/" style="font-size:15px;letter-spacing:.04em;display:flex;align-items:center;min-height:44px">Instagram @pausa_br</a></div></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3000}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { view: 'loja', cart: {}, pay: 'pix', menuOpen: false, toast: '' };
+}
+money(n) {
+return 'R$ ' + n.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+}
+renderVals() {
+const kits = [{"id": "k1", "name": "Kit de Cianotipia", "desc": "Fotografia artesanal com a luz do sol, em tons de azul.", "img": "./assets/ca9b0a202a7937cbd14e51f9dcde4fe1.png", "bg": "background:#F4EFE7;", "unit": 399, "tag": "Kit do mês"}, {"id": "k2", "name": "Kit de Junk Journal", "desc": "Monte um diário artesanal com recortes, camadas e memórias.", "img": "./assets/eefac342eb85bfe8226c12665f5cc95a.png", "bg": "background:#A3C7DD;", "unit": 399, "tag": ""}, {"id": "k3", "name": "Kit de Decupagem", "desc": "Dê nova vida a objetos com recortes de papel e acabamento.", "img": "./assets/a9a67d8f07c187560e23188866e3f191.png", "bg": "background:#76090D;", "unit": 399, "tag": ""}];
+const materials = [{"id": "m0", "name": "Papel para aquarela", "desc": "Papel de gramatura alta, ideal para receber a solução e segurar a imagem.", "img": "./assets/d890d8cf6579e81c60d9efa2be64447e.png", "bg": "background:#F4EFE7;", "unit": null, "tag": ""}, {"id": "m1", "name": "Kit de cianotipia", "desc": "As duas soluções que ficam sensíveis à luz depois de misturadas.", "img": "./assets/a9a67d8f07c187560e23188866e3f191.png", "bg": "background:#A3C7DD;", "unit": null, "tag": ""}, {"id": "m2", "name": "Pincel", "desc": "Para espalhar a solução sobre o papel de forma uniforme.", "img": "./assets/a263853ae3a2efcdfcf896516ba75050.png", "bg": "background:#F4EFE7;", "unit": null, "tag": ""}, {"id": "m3", "name": "Bandeja com água", "desc": "Para lavar e fixar a imagem depois da exposição ao sol.", "img": "./assets/448159deea5b9c7cfa4a2094d280b952.png", "bg": "background:#A3C7DD;", "unit": null, "tag": ""}, {"id": "m4", "name": "Luvas", "desc": "Protegem as mãos durante o preparo e a lavagem.", "img": "./assets/43aa2b9a20d2fb07bb2fdc8adda03688.png", "bg": "background:#F4EFE7;", "unit": null, "tag": ""}, {"id": "m5", "name": "Óculos de proteção", "desc": "Cuidado extra ao manusear a solução fotossensível.", "img": "./assets/ca9b0a202a7937cbd14e51f9dcde4fe1.png", "bg": "background:#A3C7DD;", "unit": null, "tag": ""}, {"id": "m6", "name": "Placa de vidro transparente", "desc": "Mantém folhas e flores em contato com o papel durante a exposição.", "img": "./assets/d5bf8ed510eb1309b4efb7da47a788dd.png", "bg": "background:#F4EFE7;", "unit": null, "tag": ""}];
+const all = kits.concat(materials);
+const qtyOf = (id) => this.state.cart[id] || 0;
+const setQty = (id, q, name) => {
+const c = Object.assign({}, this.state.cart);
+if (q <= 0) { delete c[id]; } else { c[id] = q; }
+this.setState(name ? { cart: c, toast: name } : { cart: c });
+if (name) { clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toast: '' }), 3500); }
+};
+const label = (x) => (x.unit == null ? 'R$ [PREÇO]' : this.money(x.unit));
+const card = (x) => Object.assign({}, x, { priceLabel: label(x), add: () => setQty(x.id, qtyOf(x.id) + 1, x.name) });
+const lines = all.filter((x) => qtyOf(x.id) > 0).map((x) => Object.assign({}, x, {
+qty: qtyOf(x.id),
+priceLabel: label(x),
+lineLabel: x.unit == null ? 'R$ [PREÇO]' : this.money(x.unit * qtyOf(x.id)),
+inc: () => setQty(x.id, qtyOf(x.id) + 1),
+dec: () => setQty(x.id, qtyOf(x.id) - 1),
+remove: () => setQty(x.id, 0)
+}));
+let count = 0; let sum = 0; let hasMat = false;
+lines.forEach((l) => { count += l.qty; if (l.unit == null) { hasMat = true; } else { sum += l.unit * l.qty; } });
+let kitQty = 0; lines.forEach((l) => { if (l.id[0] === 'k') { kitQty += l.qty; } });
+const disc = kitQty >= 2 ? sum * 0.15 : 0;
+const net = sum - disc;
+const bannerText = kitQty >= 2 ? 'Desconto de 15% aplicado nos seus kits' : (kitQty === 1 ? 'Falta 1 kit para ganhar 15% de desconto' : 'Leve mais 1 kit e ganhe 15% de desconto');
+const total = hasMat ? (sum > 0 ? this.money(net) + ' + materiais [PREÇO]' : 'R$ [TOTAL]') : this.money(net);
+const go = (v) => () => this.setState({ view: v });
+const pays = [['pix', 'Pix'], ['cartao', 'Cartão de crédito'], ['boleto', 'Boleto']].map((p) => ({
+label: p[1],
+pressed: String(this.state.pay === p[0]),
+style: this.state.pay === p[0] ? 'font:inherit;min-height:48px;padding:0 22px;border-radius:999px;cursor:pointer;background:#1A2C63;color:#F4EFE7;border:1px solid #1A2C63' : 'font:inherit;min-height:48px;padding:0 22px;border-radius:999px;cursor:pointer;background:transparent;color:#1A2C63;border:1px solid #1A2C63',
+pick: () => this.setState({ pay: p[0] })
+}));
+const v = this.state.view;
+return {
+viewLoja: v === 'loja', viewSacola: v === 'sacola', viewCheckout: v === 'checkout', viewOk: v === 'ok',
+count: count,
+kits: kits.map(card),
+products: materials.map(card),
+lines: lines,
+bagEmpty: lines.length === 0,
+bagFull: lines.length > 0,
+total: total,
+hasDiscount: disc > 0, nudge: kitQty === 1, bannerText: bannerText,
+subtotalLabel: this.money(sum), discountLabel: '− ' + this.money(disc),
+toast: this.state.toast,
+pays: pays,
+menuOpen: this.state.menuOpen,
+menuClosed: !this.state.menuOpen,
+expanded: String(this.state.menuOpen),
+toggle: () => this.setState({ menuOpen: !this.state.menuOpen }),
+goShop: () => this.setState({ view: 'loja', menuOpen: false }),
+goBag: () => this.setState({ view: 'sacola', menuOpen: false, toast: '' }),
+goCheckout: go('checkout'),
+finish: go('ok'),
+restart: () => this.setState({ view: 'loja', cart: {} })
+};
+}
+}
+</script>
+</body>
+</html>

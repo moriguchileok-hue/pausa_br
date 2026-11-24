@@ -1,0 +1,85 @@
+{
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 3360,
+      "title": "Landing page",
+      "expand": "fill"
+    },
+    {
+      "file": "Vitrine.dc.html",
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 2760,
+      "title": "Vitrine de kits",
+      "expand": "fill"
+    },
+    {
+      "file": "Loja.dc.html",
+      "x": 3040,
+      "y": 0,
+      "w": 1440,
+      "h": 3060,
+      "title": "Loja de materiais",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    {
+      "file": "Blog.dc.html",
+      "x": 4560,
+      "y": 0,
+      "w": 1440,
+      "h": 2360,
+      "title": "Blog",
+      "expand": "fill"
+    },
+    {
+      "file": "Mobile-Home.dc.html",
+      "x": 0,
+      "y": 3500,
+      "w": 390,
+      "h": 4810,
+      "title": "Home (mobile)",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    {
+      "file": "Mobile-Vitrine.dc.html",
+      "x": 470,
+      "y": 3500,
+      "w": 390,
+      "h": 4010,
+      "title": "Vitrine (mobile)",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    {
+      "file": "Mobile-Loja.dc.html",
+      "x": 940,
+      "y": 3500,
+      "w": 390,
+      "h": 4410,
+      "title": "Loja (mobile)",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    {
+      "file": "Mobile-Blog.dc.html",
+      "x": 1410,
+      "y": 3500,
+      "w": 390,
+      "h": 3410,
+      "title": "Blog (mobile)",
+      "expand": "fill",
+      "is_interactive": true
+    }
+  ],
+  "launch": {
+    "view": "focused",
+    "file": "Main.dc.html"
+  }
+}

@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>PAUSA — Blog</title>
+<script src="./_runtime/react.js"></script>
+<script src="./_runtime/react-dom.js"></script>
+<script src="./_runtime/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;600&amp;family=Cormorant+Garamond:wght@300;400&amp;display=swap">
+<style>
+body{margin:0}
+a{color:inherit;text-decoration:none}
+a:hover{opacity:.7}
+p{hyphens:none}
+.t{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;text-transform:uppercase;margin:0;letter-spacing:.01em}
+.eyebrow{font-size:13px;letter-spacing:.4em;text-transform:uppercase}
+.diam{background:repeating-conic-gradient(#1A2C63 0 25%,#A3C7DD 0 50%) 0 0/72px 72px}
+html{scroll-behavior:smooth}
+@keyframes fadeUp{from{opacity:0;translate:0 28px}to{opacity:1;translate:0 0}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideDown{from{opacity:0;translate:0 -100%}to{opacity:1;translate:0 0}}
+@keyframes zoomOut{from{opacity:0;scale:1.08}to{opacity:1;scale:1}}
+@keyframes menuIn{from{opacity:0;translate:0 -12px}to{opacity:1;translate:0 0}}
+@keyframes toastIn{from{opacity:0;translate:0 24px;scale:.96}to{opacity:1;translate:0 0;scale:1}}
+@keyframes sway{0%,100%{rotate:-1.6deg}50%{rotate:1.6deg}}
+@keyframes shine{from{background-position:-200% 0}to{background-position:200% 0}}
+header{animation:fadeIn .6s ease both}
+.promo{animation:slideDown .7s cubic-bezier(.2,.7,.2,1) both}
+.promo strong{background:linear-gradient(100deg,#F4EFE7 40%,#A3C7DD 50%,#F4EFE7 60%) 0 0/200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 3.2s ease-in-out 1s infinite}
+a,button{transition:opacity .25s ease,background-color .25s ease,color .25s ease,border-color .25s ease,box-shadow .3s ease,translate .3s cubic-bezier(.2,.7,.2,1),scale .2s ease;-webkit-tap-highlight-color:transparent}
+a[style*="999px"]:hover,.btn:hover{opacity:1;translate:0 -2px;box-shadow:0 10px 22px rgba(26,44,99,.22)}
+a[style*="999px"]:active,.btn:active,.qty:active,button:active{scale:.97;translate:0 0}
+.qty:hover{background:#1A2C63;color:#F4EFE7}
+.fld{transition:border-color .25s ease,box-shadow .25s ease,background-color .25s ease}
+.fld:focus{outline:none;box-shadow:0 0 0 3px #A3C7DD;background:#fff}
+a:focus-visible,button:focus-visible{outline:3px solid #A3C7DD;outline-offset:3px}
+div[style*="overflow:hidden"]>img:not([style*="inset:0"]){transition:scale .8s cubic-bezier(.2,.7,.2,1)}
+div[style*="overflow:hidden"]:hover>img:not([style*="inset:0"]){scale:1.05}
+img[style*="inset:0"]{animation:zoomOut 1.6s cubic-bezier(.2,.7,.2,1) both}
+nav[aria-label="Principal"]{animation:menuIn .35s cubic-bezier(.2,.7,.2,1) both}
+nav[aria-label="Principal"] a{animation:fadeUp .45s cubic-bezier(.2,.7,.2,1) both}
+nav[aria-label="Principal"] a:nth-child(1){animation-delay:.02s}
+nav[aria-label="Principal"] a:nth-child(2){animation-delay:0.08s}
+nav[aria-label="Principal"] a:nth-child(3){animation-delay:0.12s}
+nav[aria-label="Principal"] a:nth-child(4){animation-delay:0.16s}
+nav[aria-label="Principal"] a:nth-child(5){animation-delay:0.20s}
+nav[aria-label="Principal"] a:nth-child(6){animation-delay:0.24s}
+nav[aria-label="Principal"] a:nth-child(7){animation-delay:0.28s}
+nav[aria-label="Principal"] a:nth-child(8){animation-delay:0.32s}
+nav[aria-label="Principal"] a:nth-child(9){animation-delay:0.36s}
+@keyframes revealUp{from{opacity:0;translate:0 48px}to{opacity:1;translate:0 0}}
+@keyframes revealBox{from{opacity:0;translate:0 64px;scale:.94}to{opacity:1;translate:0 0;scale:1}}
+@keyframes revealImg{from{opacity:0;scale:1.14}to{opacity:1;scale:1}}
+@keyframes slideL{from{opacity:0;translate:-64px 0}to{opacity:1;translate:0 0}}
+@keyframes slideR{from{opacity:0;translate:64px 0}to{opacity:1;translate:0 0}}
+@keyframes drift{from{translate:0 60px}to{translate:0 -60px}}
+@keyframes headShadow{from{box-shadow:0 0 0 rgba(26,44,99,0)}to{box-shadow:0 10px 28px rgba(26,44,99,.16)}}
+@keyframes prog{from{scale:0 1}to{scale:1 1}}
+html,body{overflow-x:clip}
+[id]{scroll-margin-top:96px}
+header{position:sticky;top:0;z-index:40;background:#F4EFE7}
+header::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:#76090D;transform-origin:0 50%;scale:0 1;pointer-events:none}
+@supports (animation-timeline:view()){
+header{animation:fadeIn .6s ease both,headShadow linear both;animation-timeline:auto,scroll(root);animation-range:normal,0 160px}
+header::after{animation:prog linear both;animation-timeline:scroll(root)}
+section h1,section h2,section h3,section p,section li,section ul,section form,section aside,section article,.eyebrow,section .t{animation:revealUp linear both;animation-timeline:view();animation-range:entry 0% entry 60%}
+section img:not([alt=""]):not([style*="inset:0"]){animation:revealImg linear both;animation-timeline:view();animation-range:entry 0% entry 70%}
+section div[style*="display:grid"]>div{animation:revealBox linear both;animation-timeline:view();animation-range:entry 0% entry 70%}
+section div[style*="display:grid"]>div:nth-child(2){animation-range:entry 10% entry 80%}
+section div[style*="display:grid"]>div:nth-child(3){animation-range:entry 20% entry 90%}
+section div[style*="display:grid"]>div:nth-child(n+4){animation-range:entry 30% entry 100%}
+section div[style*="display:grid"]>div :is(h1,h2,h3,p,li,ul,.t,.eyebrow){animation:none}
+section[style*="display:grid"]>*:first-child{animation:slideL linear both;animation-timeline:view();animation-range:entry 0% entry 80%}
+section[style*="display:grid"]>*:last-child{animation:slideR linear both;animation-timeline:view();animation-range:entry 0% entry 80%}
+section[style*="display:grid"]>* :is(h1,h2,h3,p,li,ul,.t,.eyebrow,img){animation:none}
+}
+@supports not (animation-timeline:view()){
+section h1,section h2,section p,.eyebrow{animation:fadeUp .8s cubic-bezier(.2,.7,.2,1) both}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+img[alt=""][style*="position:absolute"]{transform-origin:50% 100%;animation:sway 7s ease-in-out infinite}
+@supports (animation-timeline:view()){img[alt=""][style*="position:absolute"]{animation:sway 7s ease-in-out infinite,drift linear both;animation-timeline:auto,view();animation-range:normal,cover}}
+</style>
+</helmet>
+<div style="background:#F4EFE7;color:#1A2C63;font-family:'Bricolage Grotesque',Arial,sans-serif;font-size:17px;line-height:1.6">
+<a class="promo" href="Loja.dc.html" style="background:#76090D;color:#F4EFE7;min-height:44px;padding:0 48px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:14px;letter-spacing:.03em;white-space:nowrap;overflow:hidden;text-align:center;box-sizing:border-box"><span>Leve mais 1 kit e ganhe <strong style="font-weight:600">15% de desconto</strong></span><span aria-hidden="true">→</span></a>
+<header style="border-bottom:1px solid #1A2C63;padding:20px 48px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;background:#F4EFE7">
+<a href="Main.dc.html" aria-label="PAUSA, página inicial" style="display:block"><img src="./assets/659300773868f7933f754b0e54c83de7.svg" alt="PAUSA" style="display:block;height:44px;width:auto"></a>
+<nav style="display:flex;flex-wrap:wrap;gap:32px;font-size:15px;letter-spacing:.04em">
+<a href="Main.dc.html" style="font-weight:400">Início</a><a href="Vitrine.dc.html" style="font-weight:400">Kits</a><a href="Loja.dc.html" style="font-weight:400">Loja</a><a href="Blog.dc.html" style="font-weight:600">Blog</a><a href="Main.dc.html#manifesto" style="font-weight:400">Sobre a PAUSA</a>
+</nav>
+<a href="Vitrine.dc.html" style="background:#76090D;color:#F4EFE7;padding:12px 28px;border-radius:999px;font-size:15px;min-height:44px;box-sizing:border-box">Conheça o Kit</a>
+</header>
+<section style="padding:96px 48px 48px;max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:20px">
+<span class="eyebrow">Blog PAUSA · Diário de pausas</span>
+<h1 class="t" style="font-size:clamp(44px,6vw,88px);line-height:1;max-width:900px">O que é cianotipia? Uma breve história em azul.</h1>
+<p style="margin:0;max-width:620px">Antes de colocar o kit na mesa, vale conhecer a técnica que transforma luz do sol em imagem.</p>
+</section>
+
+<section style="max-width:1200px;margin:0 auto;padding:24px 48px 96px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:64px;align-items:start">
+<div style="position:relative;background:#A3C7DD;border-radius:28px;min-height:520px;overflow:hidden">
+<img src="./assets/3f89c33d44a511bccc77d96e808e5820.png" alt="" style="position:absolute;right:0;bottom:0;height:100%;width:auto;filter:none">
+<img src="./assets/f2f7152d988ac2606720975ce831c992.png" alt="" style="position:absolute;left:6%;top:8%;width:52%;height:auto;filter:brightness(0.55) contrast(1.4)">
+</div>
+<article style="display:flex;flex-direction:column;gap:24px;max-width:620px">
+<h2 class="t" style="font-size:36px;line-height:1.05">Uma foto sem câmera</h2>
+<p style="margin:0">A cianotipia é um processo fotográfico artesanal. Um papel recebe uma solução sensível à luz ultravioleta e, depois de seco, ganha por cima folhas, flores ou outros objetos. Ao ser exposto ao sol, o papel azula onde a luz o alcança. Onde o objeto fez sombra, o papel continua claro. Basta lavar em água para fixar a imagem em tons de azul-da-prússia.</p>
+<h2 class="t" style="font-size:36px;line-height:1.05;margin-top:16px">De onde vem</h2>
+<p style="margin:0">A técnica foi criada em 1842 pelo cientista inglês Sir John Herschel. Um ano depois, a botânica Anna Atkins usou a cianotipia para registrar algas em <em>Photographs of British Algae: Cyanotype Impressions</em>, considerado o primeiro livro ilustrado com imagens fotográficas.</p>
+<p style="margin:0">Mais tarde, o mesmo processo ficou conhecido nas plantas de engenharia e arquitetura, as famosas <em>blueprints</em>, por ser barato e fácil de reproduzir.</p>
+<h2 class="t" style="font-size:36px;line-height:1.05;margin-top:16px">Por que voltar a ela agora</h2>
+<p style="margin:0">Hoje a cianotipia é um convite à pausa. Não há tela, filtro ou desfazer: é preciso escolher o que vai no papel, esperar a luz e aceitar a surpresa. É o que nasce no Kit de Hobby de Cianotipia da PAUSA.</p>
+<div style="margin-top:8px"><a href="Vitrine.dc.html" style="display:inline-block;background:#76090D;color:#F4EFE7;padding:14px 32px;border-radius:999px;min-height:44px;box-sizing:border-box">Conheça o Kit</a></div>
+</article>
+</section>
+
+<section style="background:#1A2C63;color:#F4EFE7;padding:96px 48px">
+<div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+<h2 class="t" style="font-size:clamp(32px,4vw,52px);line-height:1">Próximos textos</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px">
+<div style="border:1px solid #A3C7DD;border-radius:28px;padding:32px;min-height:160px"><span class="eyebrow">Em breve</span><h3 class="t" style="font-size:28px;margin-top:12px">Junk journal: guardar memórias à mão</h3></div>
+<div style="border:1px solid #A3C7DD;border-radius:28px;padding:32px;min-height:160px"><span class="eyebrow">Em breve</span><h3 class="t" style="font-size:28px;margin-top:12px">Decupagem: dar nova vida aos objetos</h3></div>
+<div style="border:1px solid #A3C7DD;border-radius:28px;padding:32px;min-height:160px"><span class="eyebrow">Em breve</span><h3 class="t" style="font-size:28px;margin-top:12px">Menos tela, mais fazer: pequenas pausas</h3></div>
+</div>
+</div>
+</section>
+<footer style="padding:64px 48px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;background:#76090D;color:#F4EFE7">
+<img src="./assets/768e2d3d4ae54428adf0085ae35fc38f.svg" alt="PAUSA" style="display:block;height:56px;width:auto">
+<div style="display:flex;flex-direction:column;gap:2px;align-items:flex-end;text-align:right"><span style="font-size:15px">Seu hobby começa com uma pausa.</span><a href="https://www.instagram.com/pausa_br/" style="font-size:15px;letter-spacing:.04em;display:flex;align-items:center;min-height:44px">Instagram @pausa_br</a></div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2300}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

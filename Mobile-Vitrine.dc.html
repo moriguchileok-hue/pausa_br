@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>PAUSA — Vitrine (mobile)</title>
+<script src="./_runtime/react.js"></script>
+<script src="./_runtime/react-dom.js"></script>
+<script src="./_runtime/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;600&amp;family=Cormorant+Garamond:wght@300;400&amp;display=swap">
+<style>
+body{margin:0}
+a{color:inherit;text-decoration:none}
+a:hover{opacity:.7}
+p{hyphens:none}
+.t{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;text-transform:uppercase;margin:0;letter-spacing:.01em}
+.eyebrow{font-size:12px;letter-spacing:.35em;text-transform:uppercase}
+.diam{background:repeating-conic-gradient(#1A2C63 0 25%,#A3C7DD 0 50%) 0 0/60px 60px}
+html{scroll-behavior:smooth}
+@keyframes fadeUp{from{opacity:0;translate:0 28px}to{opacity:1;translate:0 0}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideDown{from{opacity:0;translate:0 -100%}to{opacity:1;translate:0 0}}
+@keyframes zoomOut{from{opacity:0;scale:1.08}to{opacity:1;scale:1}}
+@keyframes menuIn{from{opacity:0;translate:0 -12px}to{opacity:1;translate:0 0}}
+@keyframes toastIn{from{opacity:0;translate:0 24px;scale:.96}to{opacity:1;translate:0 0;scale:1}}
+@keyframes sway{0%,100%{rotate:-1.6deg}50%{rotate:1.6deg}}
+@keyframes shine{from{background-position:-200% 0}to{background-position:200% 0}}
+header{animation:fadeIn .6s ease both}
+.promo{animation:slideDown .7s cubic-bezier(.2,.7,.2,1) both}
+.promo strong{background:linear-gradient(100deg,#F4EFE7 40%,#A3C7DD 50%,#F4EFE7 60%) 0 0/200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 3.2s ease-in-out 1s infinite}
+a,button{transition:opacity .25s ease,background-color .25s ease,color .25s ease,border-color .25s ease,box-shadow .3s ease,translate .3s cubic-bezier(.2,.7,.2,1),scale .2s ease;-webkit-tap-highlight-color:transparent}
+a[style*="999px"]:hover,.btn:hover{opacity:1;translate:0 -2px;box-shadow:0 10px 22px rgba(26,44,99,.22)}
+a[style*="999px"]:active,.btn:active,.qty:active,button:active{scale:.97;translate:0 0}
+.qty:hover{background:#1A2C63;color:#F4EFE7}
+.fld{transition:border-color .25s ease,box-shadow .25s ease,background-color .25s ease}
+.fld:focus{outline:none;box-shadow:0 0 0 3px #A3C7DD;background:#fff}
+a:focus-visible,button:focus-visible{outline:3px solid #A3C7DD;outline-offset:3px}
+div[style*="overflow:hidden"]>img:not([style*="inset:0"]){transition:scale .8s cubic-bezier(.2,.7,.2,1)}
+div[style*="overflow:hidden"]:hover>img:not([style*="inset:0"]){scale:1.05}
+img[style*="inset:0"]{animation:zoomOut 1.6s cubic-bezier(.2,.7,.2,1) both}
+nav[aria-label="Principal"]{animation:menuIn .35s cubic-bezier(.2,.7,.2,1) both}
+nav[aria-label="Principal"] a{animation:fadeUp .45s cubic-bezier(.2,.7,.2,1) both}
+nav[aria-label="Principal"] a:nth-child(1){animation-delay:.02s}
+nav[aria-label="Principal"] a:nth-child(2){animation-delay:0.08s}
+nav[aria-label="Principal"] a:nth-child(3){animation-delay:0.12s}
+nav[aria-label="Principal"] a:nth-child(4){animation-delay:0.16s}
+nav[aria-label="Principal"] a:nth-child(5){animation-delay:0.20s}
+nav[aria-label="Principal"] a:nth-child(6){animation-delay:0.24s}
+nav[aria-label="Principal"] a:nth-child(7){animation-delay:0.28s}
+nav[aria-label="Principal"] a:nth-child(8){animation-delay:0.32s}
+nav[aria-label="Principal"] a:nth-child(9){animation-delay:0.36s}
+@keyframes revealUp{from{opacity:0;translate:0 48px}to{opacity:1;translate:0 0}}
+@keyframes revealBox{from{opacity:0;translate:0 64px;scale:.94}to{opacity:1;translate:0 0;scale:1}}
+@keyframes revealImg{from{opacity:0;scale:1.14}to{opacity:1;scale:1}}
+@keyframes slideL{from{opacity:0;translate:-64px 0}to{opacity:1;translate:0 0}}
+@keyframes slideR{from{opacity:0;translate:64px 0}to{opacity:1;translate:0 0}}
+@keyframes drift{from{translate:0 60px}to{translate:0 -60px}}
+@keyframes headShadow{from{box-shadow:0 0 0 rgba(26,44,99,0)}to{box-shadow:0 10px 28px rgba(26,44,99,.16)}}
+@keyframes prog{from{scale:0 1}to{scale:1 1}}
+html,body{overflow-x:clip}
+[id]{scroll-margin-top:96px}
+header{position:sticky;top:0;z-index:40;background:#F4EFE7}
+header::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:#76090D;transform-origin:0 50%;scale:0 1;pointer-events:none}
+@supports (animation-timeline:view()){
+header{animation:fadeIn .6s ease both,headShadow linear both;animation-timeline:auto,scroll(root);animation-range:normal,0 160px}
+header::after{animation:prog linear both;animation-timeline:scroll(root)}
+section h1,section h2,section h3,section p,section li,section ul,section form,section aside,section article,.eyebrow,section .t{animation:revealUp linear both;animation-timeline:view();animation-range:entry 0% entry 60%}
+section img:not([alt=""]):not([style*="inset:0"]){animation:revealImg linear both;animation-timeline:view();animation-range:entry 0% entry 70%}
+section div[style*="display:grid"]>div{animation:revealBox linear both;animation-timeline:view();animation-range:entry 0% entry 70%}
+section div[style*="display:grid"]>div:nth-child(2){animation-range:entry 10% entry 80%}
+section div[style*="display:grid"]>div:nth-child(3){animation-range:entry 20% entry 90%}
+section div[style*="display:grid"]>div:nth-child(n+4){animation-range:entry 30% entry 100%}
+section div[style*="display:grid"]>div :is(h1,h2,h3,p,li,ul,.t,.eyebrow){animation:none}
+section[style*="display:grid"]>*:first-child{animation:slideL linear both;animation-timeline:view();animation-range:entry 0% entry 80%}
+section[style*="display:grid"]>*:last-child{animation:slideR linear both;animation-timeline:view();animation-range:entry 0% entry 80%}
+section[style*="display:grid"]>* :is(h1,h2,h3,p,li,ul,.t,.eyebrow,img){animation:none}
+}
+@supports not (animation-timeline:view()){
+section h1,section h2,section p,.eyebrow{animation:fadeUp .8s cubic-bezier(.2,.7,.2,1) both}
+}
+nav[aria-label="Principal"]{position:sticky;top:69px;z-index:39;max-height:calc(100vh - 69px);overflow-y:auto;box-shadow:0 14px 28px rgba(26,44,99,.25)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</helmet>
+<div style="width:390px;max-width:100%;margin:0 auto;box-sizing:border-box;overflow:clip;background:#F4EFE7;color:#1A2C63;font-family:'Bricolage Grotesque',Arial,sans-serif;font-size:16px;line-height:1.6">
+<a class="promo" href="Mobile-Loja.dc.html" style="background:#76090D;color:#F4EFE7;min-height:44px;padding:0 12px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:13px;letter-spacing:.03em;white-space:nowrap;overflow:hidden;text-align:center;box-sizing:border-box"><span>Leve mais 1 kit e ganhe <strong style="font-weight:600">15% de desconto</strong></span><span aria-hidden="true">→</span></a>
+<header style="padding:12px 20px;border-bottom:1px solid #1A2C63;display:flex;align-items:center;justify-content:space-between;background:#F4EFE7">
+<a href="Mobile-Home.dc.html" aria-label="PAUSA, página inicial" style="display:block"><img src="./assets/659300773868f7933f754b0e54c83de7.svg" alt="PAUSA" style="display:block;height:32px;width:auto"></a>
+<div style="display:flex;align-items:center;gap:8px"><button aria-label="Menu" aria-expanded="{{expanded}}" onClick="{{toggle}}" style="width:44px;height:44px;border:0;background:transparent;color:#1A2C63;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0">
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#1A2C63" stroke-width="1.8" stroke-linecap="round"><path d="M5 5l16 16M21 5L5 21"></path></svg></sc-if>
+<sc-if value="{{menuClosed}}" hint-placeholder-val="{{ true }}"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#1A2C63" stroke-width="1.8" stroke-linecap="round"><path d="M4 8h18M4 13h18M4 18h18"></path></svg></sc-if>
+</button></div>
+</header>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+<nav aria-label="Principal" style="background:#1A2C63;color:#F4EFE7;padding:4px 20px 24px;display:flex;flex-direction:column"><a href="Mobile-Home.dc.html" style="display:flex;align-items:center;min-height:48px;border-bottom:1px solid rgba(244,239,231,.25);font-size:18px">Início</a><a href="Mobile-Home.dc.html#kit" style="display:flex;align-items:center;min-height:48px;border-bottom:1px solid rgba(244,239,231,.25);font-size:18px">O Kit</a><a href="Mobile-Home.dc.html#experiencia" style="display:flex;align-items:center;min-height:48px;border-bottom:1px solid rgba(244,239,231,.25);font-size:18px">A Experiência</a><a href="Mobile-Vitrine.dc.html" style="display:flex;align-items:center;min-height:48px;border-bottom:1px solid rgba(244,239,231,.25);font-size:18px">Kits</a><a href="Mobile-Loja.dc.html" style="display:flex;align-items:center;min-height:48px;border-bottom:1px solid rgba(244,239,231,.25);font-size:18px">Loja</a><a href="Mobile-Blog.dc.html" style="display:flex;align-items:center;min-height:48px;border-bottom:1px solid rgba(244,239,231,.25);font-size:18px">Blog</a><a href="Mobile-Home.dc.html#manifesto" style="display:flex;align-items:center;min-height:48px;border-bottom:1px solid rgba(244,239,231,.25);font-size:18px">Sobre a PAUSA</a><a href="Mobile-Vitrine.dc.html" style="margin-top:20px;background:#F4EFE7;color:#1A2C63;border-radius:999px;min-height:48px;display:flex;align-items:center;justify-content:center;font-size:16px">Conheça o Kit</a></nav>
+</sc-if>
+<section style="padding:48px 20px 24px;display:flex;flex-direction:column;gap:16px">
+<span class="eyebrow">Vitrine PAUSA</span>
+<h1 class="t" style="font-size:44px;line-height:1">Escolha o seu próximo hobby.</h1>
+<p style="margin:0">Três kits para desacelerar com as mãos. Menos tela, mais fazer.</p>
+</section>
+<section id="kit-do-mes" style="padding:16px 20px 56px">
+<div style="background:#1A2C63;color:#F4EFE7;border-radius:24px;overflow:hidden;display:flex;flex-direction:column">
+<img src="./assets/6b13f9238937c774f45d346e265cf0fd.jpg" alt="Pessoa segurando a caixa do Kit de Cianotipia da PAUSA" style="display:block;width:100%;height:300px;object-fit:cover;object-position:55% 50%">
+<div style="padding:28px 24px 32px;display:flex;flex-direction:column;gap:18px">
+<span style="align-self:flex-start;background:#F4EFE7;color:#1A2C63;padding:4px 16px;border-radius:999px;font-size:12px;letter-spacing:.12em;text-transform:uppercase">Kit do mês</span>
+<h2 class="t" style="font-size:38px;line-height:1">Kit de Hobby de Cianotipia</h2>
+<p style="margin:0">Seu próximo hobby tem tons de azul. Use a luz do sol para criar imagens únicas com folhas e flores, em um processo calmo, experimental e surpreendente.</p>
+<ul style="margin:0;padding-left:20px"><li>Papel para aquarela</li><li>Kit de cianotipia</li><li>Pincel e bandeja com água</li><li>Luvas, óculos de proteção e placa de vidro</li><li>Manual de instruções</li></ul>
+<span class="t" style="font-size:40px">R$ 399,00</span>
+<a href="Mobile-Loja.dc.html" style="background:#F4EFE7;color:#1A2C63;display:flex;align-items:center;justify-content:center;border-radius:999px;min-height:48px;box-sizing:border-box;padding:12px 28px">Quero o kit do mês</a>
+</div></div>
+</section>
+<section style="background:#A3C7DD;padding:64px 20px;display:flex;flex-direction:column;gap:40px">
+<h2 class="t" style="font-size:38px;line-height:1">Todos os kits</h2>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div class="" style="position:relative;overflow:hidden;border-radius:24px;height:340px;background:#F4EFE7;"><span style="position:absolute;top:16px;left:16px;background:#F4EFE7;color:#1A2C63;padding:4px 14px;border-radius:999px;font-size:12px;letter-spacing:.08em">Kit do mês</span><img src="./assets/ca9b0a202a7937cbd14e51f9dcde4fe1.png" alt="" style="position:absolute;right:12%;bottom:0;height:80%;width:auto"></div>
+<div style="display:flex;flex-direction:column;gap:6px"><h3 class="t" style="font-size:30px;line-height:1.05">Kit de Cianotipia</h3><p style="margin:0">Fotografia artesanal com a luz do sol, em tons de azul.</p>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:8px"><span class="t" style="font-size:30px">R$ 399,00</span><a href="Mobile-Loja.dc.html" style="border:1px solid #1A2C63;display:flex;align-items:center;min-height:48px;box-sizing:border-box;padding:0 22px;border-radius:999px">Quero este kit</a></div></div>
+</div><div style="display:flex;flex-direction:column;gap:16px">
+<div class="diam" style="position:relative;overflow:hidden;border-radius:24px;height:340px;"><img src="./assets/eefac342eb85bfe8226c12665f5cc95a.png" alt="" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:80%;height:auto"></div>
+<div style="display:flex;flex-direction:column;gap:6px"><h3 class="t" style="font-size:30px;line-height:1.05">Kit de Junk Journal</h3><p style="margin:0">Monte um diário artesanal com recortes, camadas e memórias.</p>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:8px"><span class="t" style="font-size:30px">R$ 399,00</span><a href="Mobile-Loja.dc.html" style="border:1px solid #1A2C63;display:flex;align-items:center;min-height:48px;box-sizing:border-box;padding:0 22px;border-radius:999px">Quero este kit</a></div></div>
+</div><div style="display:flex;flex-direction:column;gap:16px">
+<div class="" style="position:relative;overflow:hidden;border-radius:24px;height:340px;background:#76090D;"><img src="./assets/a9a67d8f07c187560e23188866e3f191.png" alt="" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);height:74%;width:auto"></div>
+<div style="display:flex;flex-direction:column;gap:6px"><h3 class="t" style="font-size:30px;line-height:1.05">Kit de Decupagem</h3><p style="margin:0">Dê nova vida a objetos com recortes de papel e acabamento.</p>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:8px"><span class="t" style="font-size:30px">R$ 399,00</span><a href="Mobile-Loja.dc.html" style="border:1px solid #1A2C63;display:flex;align-items:center;min-height:48px;box-sizing:border-box;padding:0 22px;border-radius:999px">Quero este kit</a></div></div>
+</div>
+</section>
+<footer style="padding:48px 20px;display:flex;flex-direction:column;gap:16px;align-items:flex-start;background:#76090D;color:#F4EFE7">
+<img src="./assets/768e2d3d4ae54428adf0085ae35fc38f.svg" alt="PAUSA" style="display:block;height:44px;width:auto">
+<div style="display:flex;flex-direction:column;gap:2px;align-items:flex-start"><span style="font-size:15px">Seu hobby começa com uma pausa.</span><a href="https://www.instagram.com/pausa_br/" style="font-size:15px;letter-spacing:.04em;display:flex;align-items:center;min-height:44px">Instagram @pausa_br</a></div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":3900}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { menuOpen: false, count: 0 };
+}
+renderVals() {
+
+return {
+menuOpen: this.state.menuOpen,
+menuClosed: !this.state.menuOpen,
+expanded: String(this.state.menuOpen),
+toggle: () => this.setState({ menuOpen: !this.state.menuOpen }),
+count: this.state.count
+};
+}
+}
+</script>
+</body>
+</html>
